@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Samebrothers - Zoo & Safari Events hall Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Quicksand:wght@600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/modal.css">
+
+    <script src="/js/config.js" type="module" defer></script>
+    <script src="/js/main.js" type="module" defer></script>
+    <script src="/js/service.js" type="module" defer></script>
+    <!-- <script src="/js/pricelist.js" type="module" defer></script> -->
+      <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+  <style>
+    .form-container form {
+      display: flex;
+      /* flex-wrap: wrap; */
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      align-items: center;
+      width: 50%;
+      margin: 0 auto;
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    }
+    .form-container {
+        width: 100%;
+        border: 1px solid #4CAF50;
+    }
+    .form-container .form-group {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    .form-container .form-group label {
+      font-weight: bold;
+    }
+    .modal-body .form-group {
+      margin-bottom: 10px;
+    }
+
+  .modal {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .modal.show {
+    display: flex;
+  }
+
+  .modal-dialog {
+    max-width: 400px;
+  }
+  .form-container {
+      max-width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    }
+    .form-container form {
+    display: flex;
+    gap: 10px;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    /* padding: 5px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+.form-container form button{
+    margin-bottom: -10px;
+}
+
+    /* h1 {
+      text-align: center;
+      color: #333;
+    } */
+
+    .selectevent,
+    .selectdate {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    select,
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+    @media screen and (max-width: 500px) {
+    
+      .form-container form{
+        flex-direction: column !important;
+        gap: 5px;
+        background-color: none;
+      }
+    }
+    @media screen and (max-width: 350px) {
+        .form-container{
+            max-width: 100%;
+        }
+        #bookingForm{
+            display: flex;
+            /* flex-direction: column !important; */
+        }
+  
+    }
+    .marquee-container {
+  position: sticky;
+  top: 0;
+
+  left: 0;
+  right: 0;
+  background-color: #2EB872; /* Add a background color for contrast */
+  z-index: 1; /* Ensure it's above other content */
+}
+
+.marquee {
+  white-space: nowrap;
+  color: #fff;
+  overflow: hidden;
+
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+  
+  </style>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="marquee-container">
+        <div class="marquee">
+          This is the scrolling content. It will keep moving horizontally.
+        </div>
+      </div>
+      
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                    <small>17 Campbell St, Lagos Island 102273, Lagos</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center py-3">
+                    <small class="far fa-clock text-primary me-2"></small>
+                    <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                    <small class="fa fa-phone-alt text-primary me-2"></small>
+                    <small>08089828929</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-4 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="index.html" class="navbar-brand p-0">
+            <img class="img-fluid me-3" src="img/icon/icon-10.png" alt="Icon">
+            <h1 class="m-0 text-primary">Samebrothers</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="service.html" class="nav-item nav-link">Services</a>
+                <!-- <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                        <a href="gallery.html" class="dropdown-item">Our Events</a>
+                        <a href="Membership.html" class="dropdown-item">Membership</a>
+                        <a href="visiting.html" class="dropdown-item">Visiting Hours</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="404.html" class="dropdown-item">404 Page</a>
+                    </div>
+                </div> -->
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+           <!-- <a href="" class="btn btn-primary">Buy Ticket<i class="fa fa-arrow-right ms-3"></i></a> -->
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-dark p-0 mb-5">
+        <div class="row g-0 flex-column-reverse flex-lg-row">
+            <div class="col-lg-6 p-0 wow fadeIn" data-wow-delay="0.1s">
+                <div class="header-bg h-100 d-flex flex-column justify-content-center p-5">
+                    <h1 class="display-4 text-light mb-5">Welcome to Our Event Hall: The Perfect Choice for Unforgettable Occasions</h1>
+                    <div class="d-flex align-items-center pt-4 animated slideInDown">
+                        <a href="about.html" class="btn btn-primary py-sm-3 px-3 px-sm-5 me-5">Read More</a>
+                        <button type="button" class="btn-play" data-bs-toggle="modal"
+                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+                            <span></span>
+                        </button>
+                        <h6 class="text-white m-0 ms-4 d-none d-sm-block">Watch Video</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="owl-carousel header-carousel">
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="img/bg1.jpeg" alt="">
+                    </div>
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="img/bg2.jpeg" alt="">
+                    </div>
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="img/b3.jpeg" alt="">
+                    </div>
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="img/b4.jpeg" alt="">
+                    </div>
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="img/b5.jpeg" alt="">
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Video Modal Start -->
+    <div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Youtube Video</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 16:9 aspect ratio -->
+                    <div class="ratio ratio-16x9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                            allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Modal End -->
+
+    <div class="line">
+        <center>
+            <h1>Book A space now</h1>
+        </center>
+    </div>
+
+    <div class="form-container">
+        <form id="bookingForm">
+            <div class="selectevent">
+                <label for="event">Event:</label>
+                <select id="event" required>
+                  <option value="">Select an event</option>
+              
+                </select>
+            </div>
+            <div class="selectevent">
+                <label for="branch">Branch:</label>
+                <select id="branch" required>
+                  <option value="">Select a branch</option>
+               
+                </select>
+            </div>
+        
+            <div class="selectdate">
+                <label for="date">Date:</label>
+                <input type="date" id="date" required>
+            </div>
+        
+            <button type="submit" id="submitBtn">Book</button>
+          </form>
+
+      </div>
+      <br/>
+      <br/>
+      <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modaltop">
+                <h2>Booking Confirmation</h2>
+                <h4 id="closeModal" class="cancel-button">X</h4>
+            </div>
+            <p id="modalMessage"></p> 
+            <br/>
+            <h5 id="modalPrice"></h5> 
+            <h5 id="modalEventName"></h5>
+            <br/>
+            <form id="userDetailsForm" class="hidden">
+                <label for="firstName">First Name:</label>
+                <input type="text" name="first_name" id="firstName" required>
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="last_name" id="lastName" required>
+                <label for="phonenumber">Phone Number:</label>
+                <input type="text" name="phone_number" id="phonenumber" required>
+                <label for="inputemail">Emaill:</label>
+                <input type="email" name="email" id="inputemail" required>
+                <label for="address">Address:</label>
+                <input type="text" name="address" id="address" required>
+                <br/>
+                <br/>
+                <!-- Add more form fields as needed -->
+                <button type="submit">Submit</button>
+              </form>
+          <!-- <button id="closeModal">Close</button> -->
+        </div>
+      </div>
+      
+      
+      <div class="modal fade" id="user-details-modal" tabindex="-1" role="dialog" aria-labelledby="user-details-modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="user-details-modal-label">User Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- User details form goes here -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+    
+          var selectedEvent = document.getElementById('event').value;
+          var selectedDate = document.getElementById('date').value;
+    
+          // You can perform further actions with the selected event and date
+          console.log('Selected Event:', selectedEvent);
+          console.log('Selected Date:', selectedDate);
+    
+          // Reset the form
+          this.reset();
+        });
+      </script> -->
+      
+      
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <p><span class="text-primary me-2">#</span>Welcome To Samebrothers</p>
+                    <h1 class="display-5 mb-4">Why You Should Visit <span class="text-primary">Samebrothers</span> Events hall!</h1>
+                    <p class="mb-4">At our event hall, we understand the importance of creating unforgettable memories. Whether you're planning a wedding, corporate gathering, or any special occasion, we are committed to providing you with an exceptional experience from start to finish.</p>
+                    <h5 class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Exquisite Venue</h5>
+                    <h5 class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Natural Environment</h5>
+                    <h5 class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Professional Guide & Security</h5>
+                    <h5 class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Welcoming Enviroment</h5>
+                    <a class="btn btn-primary py-3 px-5 mt-3" href="about.html">Read More</a>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="img-border">
+                        <img class="img-fluid" src="/img/b2.jpeg" alt="">
+                        <!-- <img class="img-fluid" src="/img/about.jpg" alt=""> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Facts Start -->
+    <div class="container-xxl bg-primary facts my-5 py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
+                    <i class="fa fa-paw fa-3x text-primary mb-3"></i>
+                    <h1 class="text-white mb-2" data-toggle="counter-up">12345</h1>
+                    <p class="text-white mb-0">Total Branch</p>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
+                    <i class="fa fa-users fa-3x text-primary mb-3"></i>
+                    <h1 class="text-white mb-2" data-toggle="counter-up">12345</h1>
+                    <p class="text-white mb-0">Total Booking</p>
+                </div>
+                <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
+                    <i class="fa fa-certificate fa-3x text-primary mb-3"></i>
+                    <h1 class="text-white mb-2" data-toggle="counter-up">12345</h1>
+                    <p class="text-white mb-0">Total Event</p>
+                </div>
+                <!-- <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
+                    <i class="fa fa-shield-alt fa-3x text-primary mb-3"></i>
+                    <h1 class="text-white mb-2" data-toggle="counter-up">12345</h1>
+                    <p class="text-white mb-0">Save Wild Life</p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Facts End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
+                    <p><span class="text-primary me-2">#</span>Our Services</p>
+                    <h1 class="display-5 mb-0">Special Services For <span class="text-primary">Samebrothers</span> Visitors</h1>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-primary h-100 d-flex align-items-center py-4 px-4 px-sm-5">
+                        <i class="fa fa-3x fa-mobile-alt text-white"></i>
+                        <div class="ms-4">
+                            <p class="text-white mb-0">Call for more info</p>
+                            <h2 class="text-white mb-0">08089828929</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gy-5 gx-4">
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <img class="img-fluid mb-3" src="img/icon/icon-2.png" alt="Icon">
+                    <h5 class="mb-3">Car Events halling</h5>
+                    <span>Experience a captivating car showcase featuring the latest and most stunning car models. Discover the elegance, power, and cutting-edge technology of our exceptional lineup.</span>
+                </div>
+             
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <img class="img-fluid mb-3" src="img/icon/icon-4.png" alt="Icon">
+                    <h5 class="mb-3">Guide Services</h5>
+                    <span>Our guides are experts in their respective fields, with extensive knowledge and experience. They possess in-depth understanding and insights into the destinations, history, culture, and attractions you'll explore.</span>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <img class="img-fluid mb-3" src="img/icon/icon-5.png" alt="Icon">
+                    <h5 class="mb-3">Food & Beverages</h5>
+                    <span>Our extensive menu showcases a wide range of culinary delights to cater to different tastes and dietary requirements. From savory appetizers to mouthwatering main courses and delectable desserts, we offer a diverse selection that is sure to please every palate.</span>
+                </div>
+               
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <img class="img-fluid mb-3" src="img/icon/icon-7.png" alt="Icon">
+                    <h5 class="mb-3">Free Hi Speed Wi-Fi</h5>
+                    <span>Clearly advertise that your event hall offers free high-speed Wi-Fi. Include this information on your website, social media profiles, brochures, and any other marketing materials. Highlight the benefits of having reliable and fast internet access during events.</span>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <img class="img-fluid mb-3" src="img/icon/icon-8.png" alt="Icon">
+                    <h5 class="mb-3">Event Hall</h5>
+                    <span>Our event hall offers a range of versatile spaces that can accommodate events of all sizes and types. Whether you're planning a corporate conference, a wedding reception, a birthday party, or any other special occasion, we have the ideal space to suit your needs.</span>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <img class="img-fluid mb-3" src="img/icon/icon-9.png" alt="Icon">
+                    <h5 class="mb-3">Shortlet</h5>
+                    <span>Our Shortlet is nestled in a peaceful location, away from the hustle and bustle of city life. It provides a tranquil environment where you can unwind, rejuvenate, and escape the stresses of everyday life.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Animal Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 mb-5 align-items-end wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
+                    <p><span class="text-primary me-2">#</span>Our Events</p>
+                    <h1 class="display-5 mb-0">Let`s See Our <span class="text-primary">Samebrothers</span> Events</h1>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <a class="btn btn-primary py-3 px-5" href="">Explore More Events</a>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" id="allevent">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <a class="animal-item" href="/img/b5.jpeg" data-lightbox="animal">
+                            <!-- <a class="animal-item" href="img/animal-md-1.jpg" data-lightbox="animal"> -->
+                                <div class="position-relative">
+                                    <img class="img-fluid" src="/img/b3.jpeg" alt="">
+                                    <!-- <img class="img-fluid" src="/img/animal-md-1.jpg" alt=""> -->
+                                    <div class="animal-text p-4">
+                                        <p class="text-white small text-uppercase mb-0">Weeding</p>
+                                        <h5 class="text-white mb-0">Weeding events</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a class="animal-item" href="/img/b2.jpeg" data-lightbox="animal">
+                            <!-- <a class="animal-item" href="img/animal-lg-1.jpg" data-lightbox="animal"> -->
+                                <div class="position-relative">
+                                    <img class="img-fluid" src="/img/b2.jpeg" alt="">
+                                    <div class="animal-text p-4">
+                                        <p class="text-white small text-uppercase mb-0">Naming ceremony</p>
+                                        <h5 class="text-white mb-0">Naming</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <a class="animal-item" href="/img/bg1.jpeg" data-lightbox="animal">
+                                <div class="position-relative">
+                                    <img class="img-fluid" src="/img/bg1.jpeg" alt="">
+                                    <div class="animal-text p-4">
+                                        <p class="text-white small text-uppercase mb-0">Lectures</p>
+                                        <h5 class="text-white mb-0">Lectures</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a class="animal-item" href="/img/bg2.jpeg" data-lightbox="animal">
+                                <div class="position-relative">
+                                    <img class="img-fluid" src="/img/bg2.jpeg" alt="">
+                                    <div class="animal-text p-4">
+                                        <p class="text-white small text-uppercase mb-0">Birthday</p>
+                                        <h5 class="text-white mb-0">Birthday</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <a class="animal-item" href="/img/bg.jpeg" data-lightbox="animal">
+                                <div class="position-relative">
+                                    <img class="img-fluid" src="/img/bg.jpeg" alt="">
+                                    <div class="animal-text p-4">
+                                        <p class="text-white small text-uppercase mb-0">Animal</p>
+                                        <h5 class="text-white mb-0">Elephant</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a class="animal-item" href="/img/b3.jpeg" data-lightbox="animal">
+                                <div class="position-relative">
+                                    <img class="img-fluid" src="/img/b5.jpeg" alt="">
+                                    <div class="animal-text p-4">
+                                        <p class="text-white small text-uppercase mb-0">Animal</p>
+                                        <h5 class="text-white mb-0">Elephant</h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Animal End -->
+
+
+    <!-- Visiting Hours Start -->
+    <div class="container-xxl bg-primary visiting-hours my-5 py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0.3s">
+                    <h1 class="display-6 text-white mb-5">Visiting Hours</h1>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span>Monday</span>
+                            <span>6:00AM - 10:00PM</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Tuesday</span>
+                            <span>6:00AM - 10:00PM</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Wednesday</span>
+                            <span>6:00AM - 10:00PM</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Thursday</span>
+                            <span>6:00AM - 10:00PM</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Friday</span>
+                            <span>6:00AM - 10:00PM</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Saturday</span>
+                            <span>6:00AM - 10:00PM</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span>Sunday</span>
+                            <span>6:00AM - 10:00PM</span>
+                        </li>
+                        <!-- <li class="list-group-item">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="col-md-6 text-light wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="display-6 text-white mb-5">Contact Info</h1>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Office</td>
+                                <td>17 Campbell St, Lagos Island 102273, Lagos</td>
+                            </tr>
+                           
+                            <tr>
+                                <td>Ticket</td>
+                                <td>
+                                    <p class="mb-2">08089828929</p>
+                                    <p class="mb-0">ticket@example.com</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Support</td>
+                                <td>
+                                    <p class="mb-2">08089828929</p>
+                                    <p class="mb-0">support@example.com</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Visiting Hours End -->
+
+
+    <!-- Membership Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 mb-5 align-items-end wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6">
+                    <p><span class="text-primary me-2">#</span>Event List</p>
+                    <h1 class="display-5 mb-0">Book From Our Event List <span class="text-primary">Samebrothers</span></h1>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <a class="btn btn-primary py-3 px-5" href="membership.html">View All</a>
+                </div>
+            </div>
+            <div class="row g-4" id="pricelist">
+                <!-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="Membership-item position-relative">
+                        <img class="img-fluid" src="/img/bg2.jpeg" alt="">
+                        <h1 class="display-1">01</h1>
+                        <h4 class="text-white mb-3">Popular</h4>
+                        <h3 class="text-primary mb-4">$99.00</h3>
+                        <p><i class="fa fa-check text-primary me-3"></i>10% discount</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>2 adult and 2 child</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Free animal exhibition</p>
+                        <a class="btn btn-outline-light px-4 mt-3" href="">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="Membership-item position-relative">
+                        <img class="img-fluid" src="/img/bg2.jpeg" alt="">
+                        <h1 class="display-1">02</h1>
+                        <h4 class="text-white mb-3">Standard</h4>
+                        <h3 class="text-primary mb-4">$149.00</h3>
+                        <p><i class="fa fa-check text-primary me-3"></i>15% discount</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>4 adult and 4 child</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Free animal exhibition</p>
+                        <a class="btn btn-outline-light px-4 mt-3" href="">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="Membership-item position-relative">
+                        <img class="img-fluid" src="/img/bg2.jpeg" alt="">
+                        <h1 class="display-1">03</h1>
+                        <h4 class="text-white mb-3">Premium</h4>
+                        <h3 class="text-primary mb-4">$199.00</h3>
+                        <p><i class="fa fa-check text-primary me-3"></i>20% discount</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>6 adult and 6 child</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Free animal exhibition</p>
+                        <a class="btn btn-outline-light px-4 mt-3" href="">Get Started</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Membership End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <h1 class="display-5 text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Our Clients Say!</h1>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid rounded-circle border border-2 p-2 mx-auto mb-4" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Patient Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid rounded-circle border border-2 p-2 mx-auto mb-4" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Patient Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid rounded-circle border border-2 p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Patient Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Address</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>17 Campbell St, Lagos Island 102273, Lagos</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>080898289290</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Quick Links</h5>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Popular Links</h5>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">Newsletter</h5>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        <!-- Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</body>
+
+</html>

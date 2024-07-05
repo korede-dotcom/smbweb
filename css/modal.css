@@ -1,0 +1,96 @@
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  .modaltop{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .modaltop h2{
+    flex: 1;
+  }
+  .modal-content {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 10000;
+    width: 50% !important;
+    margin: auto 0;
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+  }
+  
+  .modal-content p {
+    margin-bottom: 0;
+  }
+
+  .cancel-button {
+    /* position: absolute; */
+    /* top: 10px;
+    right: 10px;
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer; */
+    /* color: #999; */
+    cursor: pointer;
+  }
+  
+  .cancel-button:hover {
+    color: #333;
+    
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .phoneemail label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .phoneemail input[type="tel"]{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  #inputemail{
+    width: 100% !important;
+    padding: 8px;
+    border: 1px solid #ccc !important;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
