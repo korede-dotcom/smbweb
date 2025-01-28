@@ -31,9 +31,6 @@ branchPromise.then(branchData => {
 
 
 
-
-
-
 // Function to populate select element with options
 function populateSelect(selectId, data,type) {
   const select = document.getElementById(selectId);
