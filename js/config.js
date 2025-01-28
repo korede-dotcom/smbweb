@@ -1,2 +1,2 @@
-const myEnvVariable = 'http://localhost:9800/';
+const myEnvVariable = 'https://api.samebrothers.com/';
 export { myEnvVariable };
